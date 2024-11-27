@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h2><em>Items in your shopping cart</em></h2>
+<ul>
+  <% @cart.lineitems.each do |item| %>
+    <li><%= item.product.name %> -<%= item.quantity %></li>
+  <% end %>
+</ul>

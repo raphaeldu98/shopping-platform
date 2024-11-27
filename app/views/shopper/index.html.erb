@@ -1,0 +1,12 @@
+<h1>Product Catalog</h1>
+
+<% @allproducts.each do |product| %>
+<div class = "entry">
+  <div style="float:left"><%= image_tag(product.image, style: "width: 100px; height: 150px;") %></div>
+  <div style="float:left"><p><strong>Name:</strong> <%= product.name %></p><br>
+  <p><strong>Description:</strong> <%= product.description %></p><br>
+  <p><strong>Price:</strong> $<%= product.price %></p>
+  </div>
+  <%= button_to("Add to cart", lineitems_path(product_id: product)) %>
+</div>
+<% end %>

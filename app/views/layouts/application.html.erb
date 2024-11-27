@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Hw5" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body class="<%= controller.controller_name %>">
+    <div id="banner"> </div>
+    <%# <%= image_tag("logo.png") %>
+    <h1>My Online Store</h1>
+    <div id="columns">
+      <div id="side">
+        <%= render(@cart)%>
+      </div>
+      <div id="main"><%= yield %></div>
+    </div>
+  </body>
+</html>
