@@ -1,8 +1,8 @@
-<h1>Product Catalog</h1>
+<h1>Offer Catalog</h1>
 
 <% @allproducts.each do |product| %>
 <div class = "entry">
-  <div style="float:left"><%= image_tag(product.image, style: "width: 100px; height: 150px;") %></div>
+  <div style="float:left"><%= image_tag(product.image, style: "width: 330px; height: 180px;") %></div>
   <div style="float:left"><p><strong>Name:</strong> <%= product.name %></p><br>
   <p><strong>Description:</strong> <%= product.description %></p><br>
   <p><strong>Price:</strong> $<%= product.price %></p>
