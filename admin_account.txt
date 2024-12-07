@@ -1,0 +1,3 @@
+name: admin
+password: password
+using this for login to admin panel
