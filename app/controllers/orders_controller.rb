@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :authorize
   include(CurrentCart)
   before_action :set_cart
   before_action :set_order, only: %i[ show edit update destroy ]
@@ -28,7 +29,7 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
-    
+
     @order.add_items_from_cart(@cart)
 
     respond_to do |format|

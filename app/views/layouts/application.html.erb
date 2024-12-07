@@ -21,9 +21,21 @@
     <h1 style="text-align: center;">My Offer Store</h1>
     <div id="columns">
       <div id="side">
-        <%= render(@cart)%>
+        <% if session[:user_id] %>
+          <p>Welcome, <%= User.find(session[:user_id]).name %></p>
+          <%= link_to "Logout", logout_path, method: :delete %>
+          <%= link_to "Products", products_path %>
+        <% else %>
+          <%= link_to "Login", login_path %>
+        <% end %>
+        <%= render(@cart) if @cart%>
       </div>
-      <div id="main"><%= yield %></div>
+      <div id="main">
+        <% flash.each do |key, message| %>
+          <div class="flash <%= key %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

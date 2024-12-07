@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
+  resources :users
   resources :orders
   resources :lineitems
   resources :carts
   get "shopper/index"
   resources :products
+  get "login", to: "sessions#new", as: "login"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy", as: "logout"
+  get "logout", to: "sessions#destroy"
 
 
   # get '/', to: 'shopper#index'
-  root("shopper#index", as: "shopper") 
+  root("shopper#index", as: "shopper")
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
