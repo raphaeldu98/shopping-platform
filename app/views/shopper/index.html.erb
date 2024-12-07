@@ -7,9 +7,6 @@
   <p><strong>Description:</strong> <%= product.description %></p><br>
   <p><strong>Price:</strong> $<%= product.price %></p>
   </div>
-  <%= button_to("Add to cart",
-                 lineitems_path(product_id: product),
-                 remote:true
-                 ) %>
+  <%= button_to("Add to cart", lineitems_path(product_id: product)) %>
 </div>
 <% end %>
