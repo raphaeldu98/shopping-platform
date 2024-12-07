@@ -32,6 +32,7 @@ class LineitemsController < ApplicationController
       if @lineitem.save
         format.html { redirect_to shopper_url, notice: "Item successfully added to cart" }
         format.json { render :show, status: :created, location: @lineitem }
+        format.js{}
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @lineitem.errors, status: :unprocessable_entity }
