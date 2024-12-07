@@ -6,6 +6,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="/javascripts/rails-ujs.js"></script>
+    <script>
+      Rails.start();
+    </script>
 
     <%= yield :head %>
 
@@ -21,19 +25,22 @@
     <h1 style="text-align: center;">My Offer Store</h1>
     <div id="columns">
       <div id="side">
+          <% flash.each do |key, message| %>
+          <div class="flash <%= key %>"><%= message %></div>
+        <% end %>
         <% if session[:user_id] %>
           <p>Welcome, <%= User.find(session[:user_id]).name %></p>
           <%= link_to "Logout", logout_path, method: :delete %>
-          <%= link_to "Products", products_path %>
         <% else %>
-          <%= link_to "Login", login_path %>
+          <div class="login-container">
+            <%= link_to "Admin Login", login_path, class: "btn btn-login" %>
+          </div>
         <% end %>
-        <%= render(@cart) if @cart%>
+        <div id="cart">
+          <%= render(@cart) if @cart%>
+        </div>
       </div>
       <div id="main">
-        <% flash.each do |key, message| %>
-          <div class="flash <%= key %>"><%= message %></div>
-        <% end %>
         <%= yield %>
       </div>
     </div>

@@ -1,0 +1,8 @@
+<h1><%= @product.name %></h1>
+<div class="product-detail">
+  <%= image_tag @product.image, style: "width: 400px; height: 300px;" if @product.image.present? %>
+  <p><strong>Description:</strong> <%= @product.description %></p>
+  <p><strong>Price:</strong> $<%= @product.price %></p>
+  <%= button_to "Add to Cart", lineitems_path(product_id: @product.id), remote: true, class: "btn btn-primary" %>
+</div>
+<%= link_to "Back to Products", shopper_url, class: "btn btn-secondary" %>

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authorize, except: [ :details, :search ]
   include(CurrentCart)
   before_action :set_cart
   before_action :set_product, only: %i[ show edit update destroy ]
@@ -57,6 +58,21 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_path, status: :see_other, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    query = params[:query]
+    @products = Product.where("name LIKE ? OR description LIKE ?", "%#{query}%", "%#{query}%")
+
+    if params[:min_price].present? && params[:max_price].present?
+      @products = @products.where(price: params[:min_price]..params[:max_price])
+    end
+
+    render :search
+  end
+
+  def details
+    @product = Product.find(params[:id])
   end
 
   private

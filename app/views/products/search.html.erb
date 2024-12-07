@@ -1,0 +1,17 @@
+<h1 class="page-title">Products</h1>
+<%= link_to "Back to All Products", shopper_url, class: "btn btn-secondary back-btn" %>
+
+<% if @products.any? %>
+  <div class="product-grid">
+    <% @products.each do |product| %>
+      <div class="product-card">
+        <%= image_tag(product.image, class: "product-image") if product.image.present? %>
+        <h2 class="product-name"><%= link_to product.name, product_details_path(product) %></h2>
+        <p class="product-description"><%= truncate(product.description, length: 100) %></p>
+        <p class="product-price">Price: $<%= product.price %></p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="no-products-message">No products found for your search.</p>
+<% end %>

@@ -7,11 +7,14 @@ Rails.application.routes.draw do
   resources :lineitems
   resources :carts
   get "shopper/index"
+  get "products/search", to: "products#search", as: "search_products"
+  get "products/:id/details", to: "products#details", as: "product_details"
   resources :products
   get "login", to: "sessions#new", as: "login"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy", as: "logout"
   get "logout", to: "sessions#destroy"
+  resources :products, only: [ :index, :show ]
 
 
   # get '/', to: 'shopper#index'

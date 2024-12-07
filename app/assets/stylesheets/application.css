@@ -15,7 +15,7 @@
  */
 
  #banner {
-    background: #fc7b08;
+    background: #6aade0;
     padding: 10px;
     border-bottom: 2px solid;
     font: 40px/40px "Arial";
@@ -49,8 +49,14 @@
   #side {
     float: left;
     padding: 1em 2em;
-    width: 13em;
-    background: #9c947e;
+    width: 15em;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #e1e0e0;
+    padding: 20px;
+    border-right: 1px solid #ddd;
   }
   
   #side ul {
@@ -65,3 +71,251 @@
     color: #0f0b;
     font-size: small;
   }
+
+  .flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .flash.notice {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .flash.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  .add-to-cart-btn {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  .add-to-cart-btn:active {
+    background-color: #1e7e34;
+    transform: scale(0.95);
+  }
+
+.shopping-cart {
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notice {
+  color: rgb(3, 15, 3);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.shopping-cart h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.shopping-cart h4 {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.cart-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.cart-buttons .btn {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cart-buttons .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.cart-buttons .btn-danger:hover {
+  background-color: #c82333;
+}
+
+.cart-buttons .btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.cart-buttons .btn-success:hover {
+  background-color: #218838;
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.item-quantity,
+.item-price {
+  color: #555;
+  font-size: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-container {
+  text-align: center;
+}
+
+.btn-login {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+.btn-logout {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-logout:hover {
+  background-color: #0056b3;
+}
+
+/* Login Page Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Login Title */
+.login-title {
+  text-align: center;
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+
+/* Form Group */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Form Actions */
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  display: block;
+  margin: 10px auto 0;
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #565e64;
+}
+

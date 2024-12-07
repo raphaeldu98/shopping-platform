@@ -1,16 +1,20 @@
-<div id="<%= dom_id cart %>">
-<p style="color: green; margin-left: 0;"><%= notice %></p>
+<div id="<%= dom_id cart %>" class="shopping-cart">
 
+  <h2>Shopping Cart:</h2>
+  <h4>Total Price: $<%= @cart.total_price %></h4>
 
-<h2>Shopping cart :</h2>
-<h4>Total Price: <%= @cart.total_price%></h4>
-  <div style="display: flex; gap: 10px;">
-    <%= button_to("Empty Cart", @cart, method: :delete, data: { confirm: "Are you sure?" }) %>
-    <%= button_to("Check out", new_order_path, method: :get) %>
+  <div class="cart-buttons">
+    <%= button_to("Empty Cart", @cart, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger") %>
+    <%= button_to("Check Out", new_order_path, method: :get, class: "btn btn-success") %>
   </div>
-<ul>
-  <% @cart.lineitems.each do |item| %>
-    <li><%= item.product.name %> - <%= item.quantity %> - <%= item.product.price %></li>
-  <% end %>
-</ul>
+
+  <ul class="cart-items">
+    <% @cart.lineitems.each do |item| %>
+      <li class="cart-item">
+        <span class="item-name"><%= item.product.name %></span>
+        <span class="item-quantity">Qty: <%= item.quantity %></span>
+        <span class="item-price">$<%= item.product.price %></span>
+      </li>
+    <% end %>
+  </ul>
 </div>

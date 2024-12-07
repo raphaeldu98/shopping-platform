@@ -1,12 +1,22 @@
 <h1>Offer Catalog</h1>
-
+<p></p>
+<%= form_with url: search_products_path, method: :get, local: true, class: "search-form" do %>
+  <div>
+    <%= label_tag :query, "Search Products" %>
+    <%= text_field_tag :query, params[:query], placeholder: "Name or Description", class: "form-input" %>
+  </div>
+  <div>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>
 <% @allproducts.each do |product| %>
 <div class = "entry">
   <div style="float:left"><%= image_tag(product.image, style: "width: 330px; height: 180px;") %></div>
-  <div style="float:left"><p><strong>Name:</strong> <%= product.name %></p><br>
+  <div style="float:left">
+    <p><strong><%= link_to product.name, product_details_path(product) %></strong></p>
   <p><strong>Description:</strong> <%= product.description %></p><br>
   <p><strong>Price:</strong> $<%= product.price %></p>
   </div>
-  <%= button_to("Add to cart", lineitems_path(product_id: product)) %>
+  <%= button_to "Add to Cart", lineitems_path(product_id: product), remote: true, class: "add-to-cart-btn" %>
 </div>
 <% end %>
